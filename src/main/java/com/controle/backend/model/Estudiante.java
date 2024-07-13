@@ -44,6 +44,7 @@ public class Estudiante {
     private Long telefono;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Genero genero;
 
     @Column(nullable = false)
