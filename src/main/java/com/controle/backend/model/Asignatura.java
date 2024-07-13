@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Data
@@ -32,7 +33,10 @@ public class Asignatura {
     @Enumerated(EnumType.STRING)
     private Estado estado;
 
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDate fechaCreacion;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDate fechaUltimaModificacion;
 
     @Column(nullable = false, name = "area_id")

@@ -8,6 +8,7 @@ import com.controle.backend.enums.Estado;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Data
@@ -29,8 +30,11 @@ public class Area {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Estado estado;
-    
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDate fechaCreacion;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDate fechaUltimaModificacion;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "area")
